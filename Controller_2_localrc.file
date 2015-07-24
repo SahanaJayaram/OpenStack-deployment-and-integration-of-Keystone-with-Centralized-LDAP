@@ -1,0 +1,32 @@
+# OpenStack-deployment-and-integration-of-Keystone-with-Centralized-LDAP
+
+# On second controller, deploying openstack 
+# Ldap clients connects to LDAP Server with Bind request
+
+DEST=/opt/stack
+
+#logging
+
+LOGFILE=$DEST/logs/stack/stack.sh.log
+VERBOSE=True
+LOG_COLOR=False
+SCREEN_LOGDIR=$DEST/logs/screen
+
+#credentials
+ADMIN_PASSWORD=onecloud
+RABBIT_PASSWORD=onecloud
+MYSQL_PASSWORD=onecloud
+SERVICE_PASSWORD=onecloud
+SERVICE_TOKEN=onecloud
+
+HOST_IP=192.168.122.148
+
+#services
+disable_service n-net
+enable_service q-svc
+enable_service q-agt
+enable_service q-l3
+enable_service q-dhcp
+enable_service q-meta
+enable_service neutron
+disable_service heat h-api h-api-cfn h-api-cw h-eng
